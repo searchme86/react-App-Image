@@ -1,12 +1,25 @@
 import React from 'react';
+import { Grid, Image, Text } from '../elements';
 
-function Post() {
+function Post(props) {
   return (
     <>
-      <div>user profile / user name / insert_dt/ is_me (btn)</div>
-      <div>contents</div>
-      <div>img</div>
-      <div>comment cnt</div>
+      <Grid>
+        <Grid is_flex>
+          <Image shape="circle" src={props.src} />
+          <Text bold>{props.user_info.user_name}</Text>
+          <Text>{props.user_info.insert_dt}</Text>
+        </Grid>
+        <Grid padding="16px">
+          <Text>{props.user_info.contents}</Text>
+        </Grid>
+        <Grid>
+          <Image shape="rectangle" src={props.src} />
+        </Grid>
+        <Grid padding="16px">
+          <Text bold>댓글 {props.user_info.comment_cnt}개</Text>
+        </Grid>
+      </Grid>
     </>
   );
 }
